@@ -1,0 +1,22 @@
+Learn Docker
+
+Commands::
+
+Running an image 
+$ docker run hello-world
+
+run -> Run image to create container
+
+On running this command it will first search in local
+if not found
+it will search in docker repo and download it
+
+Ex:: We download an ubuntu image and want to play with it
+we use
+$ docker run -it ubuntu
+
+-it -> It says run image in interactive mode
+like open ubuntu terminal after creating container
+
+
+
