@@ -19,4 +19,71 @@ $ docker run -it ubuntu
 like open ubuntu terminal after creating container
 
 
+To list all images present
+$ docker images
+
+To download an image (it fetches the latest version)
+$ docker pull name
+
+
+To download image of specific verison
+docker pull name:1.0.1
+
+Ex-> docker pull ubuntu:16.04
+
+
+To get list of all containers running
+
+$ docker ps (ps means process status)
+
+$ docker container ls (does same show list of containers)
+
+If you run an image and after that you want to make it interactive
+like you run ubuntu image without -it
+
+$ docker container exec -it container-id(it can be find by above cmd docker ps or container ls)
+
+To stop container
+$ docker stop container-id
+
+To list all stopped container details
+$ docker ps -a
+
+To all details of container
+$ docker inspect container-id
+
+To get all logs(like all cmd entered and their output)
+$ docker logs container-id
+
+To delete all stopped containers
+$ docker container prune -f
+
+-f -> force
+This will delete everything about container like logs and stuff
+
+
+To run a command while running the image or creating container
+$ docker run alpine ping google.com
+
+alpine -> its a linux os
+after alpine we are running commmand
+
+To run same command but keep it running in background we use
+$ docker run -d alpine ping google.com
+
+-d -> detachable
+
+If you stopped a running container all the files and stuff you created manually will gets reset
+
+
+
+
+
+
+
+
+
+
+
+
 
