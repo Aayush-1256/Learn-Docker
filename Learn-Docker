@@ -41,7 +41,9 @@ $ docker container ls (does same show list of containers)
 If you run an image and after that you want to make it interactive
 like you run ubuntu image without -it
 
-$ docker container exec -it container-id(it can be find by above cmd docker ps or container ls)
+$ docker container exec -it container-id bash(it can be find by above cmd docker ps or container ls)
+
+bash -> what you want to run like for ubnntu image we want to run bash
 
 To stop container
 $ docker stop container-id
@@ -75,8 +77,44 @@ $ docker run -d alpine ping google.com
 
 If you stopped a running container all the files and stuff you created manually will gets reset
 
+Getting logs from container whithin some time
+$ docker logs --since 5s container-id
+
+5s -> all logs from past 5s
 
 
+Remove image
+$ docker rmi image-name -f
+
+To run image in background like 
+ubuntu has bash and it exits when not in interative mode
+Now to keep it running
+$ docker run -t -d image-name
+
+To run some application on specified port on localhost
+Like nginx runs on 80 an
+we want to run its image on port 8080
+$ docker run -d -p 8080:80 nginx 
+
+-p -> port 
+8080:80 -> specified port:default port
+
+Start a stopped container
+$ docker start container-id
+
+Whenevr we add some files or stuff in conatiner 
+All those gets deleted when you stop a container and restart
+To have your data there in image we need to create a new image from that image
+
+$ docker commit -m "Added txt files" container-id image-name:version
+verison is not neccessay 
+can remove :version from above cmd if not req
+
+To get all images it
+$ docker images -q
+
+Suppose you want to remove all images
+$ docker rmi $(docker images -q)
 
 
 
